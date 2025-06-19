@@ -1,0 +1,143 @@
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to right, #ffe6f0, #ccf2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.inputnama{
+  margin: 10px;
+}
+.quiz-container {
+  background-color: #fff0f5;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+h1 {
+  color: #ff69b4;
+  font-size: 26px;
+}
+
+#question {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.answer-btn {
+  background-color: #f0f8ff;
+}
+
+.answer-btn.correct {
+  background-color: #98fb98; /* hijau */
+}
+
+.answer-btn.wrong {
+  background-color: #ffcccb; /* merah muda */
+}
+
+#next-btn {
+  background-color: #ffb6c1;
+  margin-top: 20px;
+}
+
+#score-display {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #444;
+}
+
+#score-result {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.score-text {
+  font-size: 2em;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  margin-top: 5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.emoji-top,
+.emoji-bottom {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  display: block;
+  filter: none !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+
+.emoji {
+  font-size: 2.2em;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+
+#timer {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: #ff5555;
+  font-weight: bold;
+}
+.start-btn {
+  padding: 10px 20px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.start-btn:hover {
+  background-color: #554ed6;
+}
+
+#score-result h2 {
+  font-size: 2.2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Tambahan agar tidak tenggelam di background */
+}
+
+
