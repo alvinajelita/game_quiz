@@ -2,6 +2,7 @@ body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   background: linear-gradient(to right, #ffe6f0, #ccf2ff);
   display: flex;
+  /* display: block; */
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -139,5 +140,3 @@ button:hover {
 
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Tambahan agar tidak tenggelam di background */
 }
-
-
