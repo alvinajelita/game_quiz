@@ -41,17 +41,17 @@ const questions = [
   {
     question: "📡 Fungsi dari jaringan internet adalah...?",
     answers: [
+      { text: "Menghubungkan perangkat ke seluruh dunia 🌍", correct: true },
       { text: "Memperbaiki sinyal TV", correct: false },
       { text: "Mendinginkan kulkas", correct: false },
-      { text: "Menghubungkan perangkat ke seluruh dunia 🌍", correct: true },
     ]
   },
   {
     question: "🖱️ Mouse pada komputer digunakan untuk...?",
     answers: [
-      { text: "Menggerakkan pointer dan klik 📍", correct: true },
       { text: "Menangkap tikus", correct: false },
       { text: "Menulis di papan tulis", correct: false },
+      { text: "Menggerakkan pointer dan klik 📍", correct: true },
     ]
   },
   {
@@ -65,17 +65,17 @@ const questions = [
   {
     question: "📲 Apa itu aplikasi?",
     answers: [
-      { text: "Program di HP/komputer untuk membantu aktivitas 💼", correct: true },
       { text: "Jenis makanan cepat saji", correct: false },
       { text: "Perabot rumah", correct: false },
+      { text: "Program di HP/komputer untuk membantu aktivitas 💼", correct: true },
     ]
   },
   {
     question: "🔍 Google digunakan untuk...?",
     answers: [
+      { text: "Mencari informasi di internet 🔎", correct: true },
       { text: "Mencari barang hilang di rumah", correct: false },
       { text: "Mencuci pakaian", correct: false },
-      { text: "Mencari informasi di internet 🔎", correct: true },
     ]
   },
   {
