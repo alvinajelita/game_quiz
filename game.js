@@ -15,87 +15,87 @@ const scoreDisplay = document.getElementById("score-display");
 // Data pertanyaan
 const questions = [
   {
-    question: "📱 Di HP kamu, aplikasi seperti WhatsApp dan Instagram dibuat oleh siapa?",
+    question: "🌐 Apa yang kamu gunakan untuk browsing internet?",
     answers: [
-      { text: "Tukang bangunan 🧱", correct: false },
-      { text: "Programmer 👨‍💻👩‍💻", correct: true },
-      { text: "Tukang servis HP", correct: false },
+      { text: "Web browser seperti Chrome atau Firefox 🧭", correct: true },
+      { text: "Remote TV", correct: false },
+      { text: "Mesin cuci", correct: false },
     ]
   },
   {
-    question: "💾 Menyimpan file di Google Drive itu contoh dari...?",
+    question: "🔋 Apa yang terjadi kalau baterai HP kamu habis?",
     answers: [
-      { text: "Cloud storage ☁️", correct: true },
-      { text: "TV kabel 📺", correct: false },
-      { text: "Kulkas pintar ❄️", correct: false },
+      { text: "HP mati dan tidak bisa digunakan 🔌", correct: true },
+      { text: "HP berubah jadi robot", correct: false },
+      { text: "HP bisa goreng telur", correct: false },
     ]
   },
   {
-    question: "🔐 Kenapa penting pakai password yang kuat?",
+    question: "👨‍💻 Coding itu sebenarnya adalah...?",
     answers: [
-      { text: "Biar nggak gampang dibobol hacker 🕵️‍♂️", correct: true },
-      { text: "Biar bisa buka kulkas", correct: false },
-      { text: "Supaya lebih berat ngetiknya", correct: false },
+      { text: "Menulis perintah untuk komputer 💻", correct: true },
+      { text: "Menulis puisi cinta", correct: false },
+      { text: "Menggambar kartun", correct: false },
     ]
   },
   {
-    question: "🧑‍💻 Belajar di jurusan Teknologi Informasi itu bisa jadi...?",
+    question: "📡 Fungsi dari jaringan internet adalah...?",
     answers: [
-      { text: "Pembuat aplikasi/game 🎮", correct: true },
-      { text: "Tukang ledeng 💧", correct: false },
-      { text: "Pemadam kebakaran 🔥", correct: false },
+      { text: "Menghubungkan perangkat ke seluruh dunia 🌍", correct: true },
+      { text: "Memperbaiki sinyal TV", correct: false },
+      { text: "Mendinginkan kulkas", correct: false },
     ]
   },
   {
-    question: "🛜 Kalau sinyal Wi-Fi hilang, artinya kamu tidak bisa...?",
+    question: "🖱️ Mouse pada komputer digunakan untuk...?",
     answers: [
-      { text: "Makan gorengan", correct: false },
-      { text: "Akses internet 🌐", correct: true },
-      { text: "Nonton TV kabel", correct: false },
+      { text: "Menggerakkan pointer dan klik 📍", correct: true },
+      { text: "Menangkap tikus", correct: false },
+      { text: "Menulis di papan tulis", correct: false },
     ]
   },
   {
-    question: "🎮 Game Mobile Legends bisa dimainkan karena ada...?",
+    question: "💻 Laptop yang lemot bisa jadi karena...?",
     answers: [
-      { text: "Sambungan listrik PLN ⚡", correct: false },
-      { text: "Jaringan internet 📶", correct: true },
-      { text: "Remote AC", correct: false },
+      { text: "Terlalu banyak aplikasi yang berjalan ⚙️", correct: true },
+      { text: "Kurang makan", correct: false },
+      { text: "Tidak disiram air", correct: false },
     ]
   },
   {
-    question: "🧠 Komputer bisa 'pintar' karena ada...?",
+    question: "📲 Apa itu aplikasi?",
     answers: [
-      { text: "Kecerdasan Buatan (AI) 🤖", correct: true },
-      { text: "Otak manusia di dalamnya", correct: false },
-      { text: "Tulang belakangnya", correct: false },
+      { text: "Program di HP/komputer untuk membantu aktivitas 💼", correct: true },
+      { text: "Jenis makanan cepat saji", correct: false },
+      { text: "Perabot rumah", correct: false },
     ]
   },
   {
-    question: "📸 Saat kamu selfie dan menyimpan foto, data itu tersimpan di...?",
+    question: "🔍 Google digunakan untuk...?",
     answers: [
-      { text: "Memory / penyimpanan HP 💾", correct: true },
-      { text: "Kamera orang lain", correct: false },
-      { text: "Udara", correct: false },
+      { text: "Mencari informasi di internet 🔎", correct: true },
+      { text: "Mencari barang hilang di rumah", correct: false },
+      { text: "Mencuci pakaian", correct: false },
     ]
   },
   {
-    question: "🧾 Kalau kamu daftar online, biasanya harus isi...?",
+    question: "🎧 Fungsi dari headphone adalah...?",
     answers: [
-      { text: "Nama dan data diri 📋", correct: true },
-      { text: "Nomor sepatu", correct: false },
-      { text: "Zodiak", correct: false },
+      { text: "Mendengarkan suara tanpa mengganggu orang lain 🎶", correct: true },
+      { text: "Untuk topi gaya", correct: false },
+      { text: "Mikroskop", correct: false },
     ]
   },
   {
-    question: "💡 Teknologi Informasi itu mempelajari tentang...?",
+    question: "🛡️ Apa itu antivirus di komputer?",
     answers: [
-      { text: "Cara bikin dan pakai teknologi digital 📱💻", correct: true },
-      { text: "Cara menanam singkong", correct: false },
-      { text: "Sejarah kerajaan", correct: false },
+      { text: "Program untuk melindungi komputer dari virus 💉", correct: true },
+      { text: "Obat buat manusia", correct: false },
+      { text: "Pelindung dari sinar matahari", correct: false },
     ]
   }
-  // Tambahkan soal lainnya di sini...
 ];
+
 
 function startQuiz() {
   username = document.getElementById("username").value.trim();
@@ -129,7 +129,7 @@ function startTimer() {
       clearInterval(timer);
       autoPickAnswer();
     }
-  }, 800);
+  }, 350);
 }
 
 function autoPickAnswer() {
