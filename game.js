@@ -18,7 +18,7 @@ const questions = [
     question: "🌐 Apa yang kamu gunakan untuk browsing internet?",
     answers: [
       { text: "Remote TV", correct: false },
-      { text: "Web browser seperti Chrome atau Firefox ", correct: true },
+      { text: "Web browser seperti Chrome atau Firefox 🧭", correct: true },
       { text: "Mesin cuci", correct: false },
     ]
   },
@@ -27,21 +27,21 @@ const questions = [
     answers: [
       { text: "HP berubah jadi robot", correct: false },
       { text: "HP bisa goreng telur", correct: false },
-      { text: "HP mati dan tidak bisa digunakan ", correct: true },
+      { text: "HP mati dan tidak bisa digunakan 🔌", correct: true },
     ]
   },
   {
     question: "👨‍💻 Coding itu sebenarnya adalah...?",
     answers: [
       { text: "Menulis puisi cinta", correct: false },
-      { text: "Menulis perintah untuk komputer ", correct: true },
+      { text: "Menulis perintah untuk komputer 💻", correct: true },
       { text: "Menggambar kartun", correct: false },
     ]
   },
   {
     question: "📡 Fungsi dari jaringan internet adalah...?",
     answers: [
-      { text: "Menghubungkan perangkat ke seluruh dunia ", correct: true },
+      { text: "Menghubungkan perangkat ke seluruh dunia 🌍", correct: true },
       { text: "Memperbaiki sinyal TV", correct: false },
       { text: "Mendinginkan kulkas", correct: false },
     ]
@@ -51,7 +51,7 @@ const questions = [
     answers: [
       { text: "Menangkap tikus", correct: false },
       { text: "Menulis di papan tulis", correct: false },
-      { text: "Menggerakkan pointer dan klik ", correct: true },
+      { text: "Menggerakkan pointer dan klik 📍", correct: true },
     ]
   },
   {
@@ -67,13 +67,13 @@ const questions = [
     answers: [
       { text: "Jenis makanan cepat saji", correct: false },
       { text: "Perabot rumah", correct: false },
-      { text: "Program di HP/komputer untuk membantu aktivitas ", correct: true },
+      { text: "Program di HP/komputer untuk membantu aktivitas 💼", correct: true },
     ]
   },
   {
     question: "🔍 Google digunakan untuk...?",
     answers: [
-      { text: "Mencari informasi di internet ", correct: true },
+      { text: "Mencari informasi di internet 🔎", correct: true },
       { text: "Mencari barang hilang di rumah", correct: false },
       { text: "Mencuci pakaian", correct: false },
     ]
@@ -82,7 +82,7 @@ const questions = [
     question: "🎧 Fungsi dari headphone adalah...?",
     answers: [
       { text: "Untuk topi gaya", correct: false },
-      { text: "Mendengarkan suara tanpa mengganggu orang lain ", correct: true },
+      { text: "Mendengarkan suara tanpa mengganggu orang lain 🎶", correct: true },
       { text: "Mikroskop", correct: false },
     ]
   },
