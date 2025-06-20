@@ -17,33 +17,33 @@ const questions = [
   {
     question: "🌐 Apa yang kamu gunakan untuk browsing internet?",
     answers: [
-      { text: "Web browser seperti Chrome atau Firefox 🧭", correct: true },
       { text: "Remote TV", correct: false },
+      { text: "Web browser seperti Chrome atau Firefox 🧭", correct: true },
       { text: "Mesin cuci", correct: false },
     ]
   },
   {
     question: "🔋 Apa yang terjadi kalau baterai HP kamu habis?",
     answers: [
-      { text: "HP mati dan tidak bisa digunakan 🔌", correct: true },
       { text: "HP berubah jadi robot", correct: false },
       { text: "HP bisa goreng telur", correct: false },
+      { text: "HP mati dan tidak bisa digunakan 🔌", correct: true },
     ]
   },
   {
     question: "👨‍💻 Coding itu sebenarnya adalah...?",
     answers: [
-      { text: "Menulis perintah untuk komputer 💻", correct: true },
       { text: "Menulis puisi cinta", correct: false },
+      { text: "Menulis perintah untuk komputer 💻", correct: true },
       { text: "Menggambar kartun", correct: false },
     ]
   },
   {
     question: "📡 Fungsi dari jaringan internet adalah...?",
     answers: [
-      { text: "Menghubungkan perangkat ke seluruh dunia 🌍", correct: true },
       { text: "Memperbaiki sinyal TV", correct: false },
       { text: "Mendinginkan kulkas", correct: false },
+      { text: "Menghubungkan perangkat ke seluruh dunia 🌍", correct: true },
     ]
   },
   {
@@ -57,8 +57,8 @@ const questions = [
   {
     question: "💻 Laptop yang lemot bisa jadi karena...?",
     answers: [
-      { text: "Terlalu banyak aplikasi yang berjalan ⚙️", correct: true },
       { text: "Kurang makan", correct: false },
+      { text: "Terlalu banyak aplikasi yang berjalan ⚙️", correct: true },
       { text: "Tidak disiram air", correct: false },
     ]
   },
@@ -73,16 +73,16 @@ const questions = [
   {
     question: "🔍 Google digunakan untuk...?",
     answers: [
-      { text: "Mencari informasi di internet 🔎", correct: true },
       { text: "Mencari barang hilang di rumah", correct: false },
       { text: "Mencuci pakaian", correct: false },
+      { text: "Mencari informasi di internet 🔎", correct: true },
     ]
   },
   {
     question: "🎧 Fungsi dari headphone adalah...?",
     answers: [
-      { text: "Mendengarkan suara tanpa mengganggu orang lain 🎶", correct: true },
       { text: "Untuk topi gaya", correct: false },
+      { text: "Mendengarkan suara tanpa mengganggu orang lain 🎶", correct: true },
       { text: "Mikroskop", correct: false },
     ]
   },
