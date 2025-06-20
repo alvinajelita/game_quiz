@@ -1,3 +1,18 @@
+// Variabel global
+let currentQuestionIndex = 0;
+let score = 0;
+let quizEnded = false;
+let timer;
+let timeLeft = 10;
+let username = "";
+
+// Ambil elemen dari HTML
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+const scoreDisplay = document.getElementById("score-display");
+
+// Data pertanyaan
 const questions = [
   {
     question: "📱 Di HP kamu, aplikasi seperti WhatsApp dan Instagram dibuat oleh siapa?",
@@ -79,48 +94,22 @@ const questions = [
       { text: "Sejarah kerajaan", correct: false },
     ]
   }
+  // Tambahkan soal lainnya di sini...
 ];
 
-
-const questionElement = document.getElementById("question");
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-btn");
-const scoreDisplay = document.getElementById("score-display");
-
-// let currentQuestionIndex = 0;
-// let score = 0;
-// let quizEnded = false;
-
-let username = "";
-let quizEnded = false;
-let timer;
-let timeLeft = 10;
-
-
-// function startQuiz() {
-//   currentQuestionIndex = 0;
-//   score = 0;
-//   quizEnded = false;
-//   scoreDisplay.innerText = `Skor: ${score} 🍀`;
-//   nextButton.innerText = "➡️ Selanjutnya";
-//   showQuestion();
-// }
-
 function startQuiz() {
-  // Stop intro music & mulai quiz music
+  username = document.getElementById("username").value.trim();
+  if (username === "") {
+    alert("Masukkan nama kamu dulu ya! 😊");
+    return;
+  }
+
   introMusic.pause();
   introMusic.currentTime = 0;
-
   quizMusic.play();
 
   document.getElementById("intro").style.display = "none";
   document.getElementById("quiz-container").style.display = "block";
-
-  username = document.getElementById("username").value.trim();
-  if (username === "" && !quizEnded) {
-    alert("Masukkan nama kamu dulu ya! 😊");
-    return;
-  }
 
   currentQuestionIndex = 0;
   score = 0;
@@ -130,7 +119,6 @@ function startQuiz() {
   showQuestion();
 }
 
-
 function startTimer() {
   timeLeft = 10;
   document.getElementById("timer").innerText = `⏱️ ${timeLeft} detik`;
@@ -139,32 +127,24 @@ function startTimer() {
     document.getElementById("timer").innerText = `⏱️ ${timeLeft} detik`;
     if (timeLeft === 0) {
       clearInterval(timer);
-      autoPickAnswer(); // Otomatis kalau timeout
+      autoPickAnswer();
     }
-  }, 500);
+  }, 800);
 }
 
 function autoPickAnswer() {
+  const currentQuestion = questions[currentQuestionIndex];
   const buttons = answerButtons.children;
-  if (buttons.length > 0) {
-    buttons[0].click(); // klik jawaban pertama
-  }
+
+  Array.from(buttons).forEach(btn => {
+    const isCorrect = currentQuestion.answers.find(a => a.text === btn.innerText).correct;
+    btn.classList.add(isCorrect ? "correct" : "wrong");
+    btn.disabled = true;
+  });
+
+  salahSound.play();
+  nextButton.style.display = "block";
 }
-
-
-// function showQuestion() {
-//   resetState();
-//   const currentQuestion = questions[currentQuestionIndex];
-//   questionElement.innerText = currentQuestion.question;
-
-//   currentQuestion.answers.forEach(answer => {
-//     const button = document.createElement("button");
-//     button.innerText = answer.text;
-//     button.classList.add("answer-btn");
-//     button.addEventListener("click", () => selectAnswer(answer));
-//     answerButtons.appendChild(button);
-//   });
-// }
 
 function showQuestion() {
   resetState();
@@ -177,34 +157,16 @@ function showQuestion() {
   currentQuestion.answers.forEach(answer => {
     const button = document.createElement("button");
     button.innerText = answer.text;
-    button.classList.add("answer-btn");
+    button.classList.add("btn", "btn-outline-primary", "answer-btn");
     button.addEventListener("click", () => selectAnswer(answer));
     answerButtons.appendChild(button);
   });
 }
 
-
-
 function resetState() {
   nextButton.style.display = "none";
   answerButtons.innerHTML = "";
 }
-
-// function selectAnswer(answer) {
-//   const buttons = answerButtons.children;
-//   Array.from(buttons).forEach(btn => {
-//     const isCorrect = questions[currentQuestionIndex].answers.find(a => a.text === btn.innerText).correct;
-//     btn.classList.add(isCorrect ? "correct" : "wrong");
-//     btn.disabled = true;
-//   });
-
-//   if (answer.correct) {
-//     score++;
-//   }
-
-//   scoreDisplay.innerText = `Skor: ${score} 🍀`;
-//   nextButton.style.display = "block";
-// }
 
 function selectAnswer(answer) {
   clearInterval(timer);
@@ -226,10 +188,9 @@ function selectAnswer(answer) {
   nextButton.style.display = "block";
 }
 
-
 nextButton.addEventListener("click", () => {
   if (quizEnded) {
-    startQuiz(); // 🔁 Ulang kuis
+    startQuiz();
   } else {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -239,36 +200,25 @@ nextButton.addEventListener("click", () => {
     }
   }
 });
+
 function showScore() {
   resetState();
   quizEnded = true;
-
-  // Sembunyikan kontainer quiz
   document.getElementById("quiz-container").style.display = "none";
-
-  // Tampilkan hasil skor besar
-  // const scoreResult = document.getElementById("score-result");
-  // const finalScore = document.getElementById("final-score");
-  // scoreResult.style.display = "block";
-  // finalScore.innerText = `🎉 Selamat ${username}!\nSkormu: ${score}/${questions.length} 🏆`;
 
   const scoreResult = document.getElementById("score-result");
   const finalScore = document.getElementById("final-score");
 
   scoreResult.style.display = "block";
   finalScore.innerHTML = `
-  <div class="emoji-top">🎉</div>
-  <div class="score-text">Selamat ${username}!</div>
-  <div class="score-text">Skormu: ${score}/${questions.length}</div>
-  <div class="emoji-bottom">🏆</div>
-`;
+    <div class="emoji-top">🎉</div>
+    <div class="score-text">Selamat ${username}!</div>
+    <div class="score-text">Skormu: ${score}/${questions.length}</div>
+    <div class="emoji-bottom">🏆</div>
+  `;
 
-
-
-  // Mainkan suara ucapan terima kasih
   selesai.play();
 
-  // Sembunyikan tombol "Main Lagi" selama 3 detik
   nextButton.style.display = "none";
   setTimeout(() => {
     nextButton.innerText = "🔁 Main lagi";
@@ -278,41 +228,31 @@ function showScore() {
   }, 3000);
 }
 
-
-// const benarSound = new Audio("sounds/jawaban_benar.mp3");
-// benarSound.volume = 1.0; // Maksimal
-
-// const salahSound = new Audio("sounds/jawaban_salah.mp3");
-// salahSound.volume = 1.0; // Maksimal
-
-// const selesai = new Audio("sounds/ucapan_terimakasih.mp3");
-// selesai.volume = 1.0; // Maksimal
-
-
+// 🔊 Suara
 const introMusic = new Audio("sounds/intro_game.mp3");
-// introMusic.loop = true;
-introMusic.volume = 0.4; // Volume kecil (maks = 1)
+introMusic.loop = true;
+introMusic.volume = 0.4;
 
 const quizMusic = new Audio("sounds/intro_game.mp3");
-// quizMusic.loop = true;
-quizMusic.volume = 0.3; // Volume kecil juga
-// const introMusic = new Audio("sounds/intro_game.mp3");
-// const quizMusic = new Audio("sounds/intro_game.mp3");
-// const quizMusic = new Audio("sounds/quiz_play.mp3");
-// const scoreMusic = new Audio("sounds/score_music.mp3");
-
-introMusic.loop = true;
 quizMusic.loop = true;
-// scoreMusic.loop = true;
+quizMusic.volume = 0.3;
 
 const benarSound = new Audio("sounds/jawaban_benar.mp3");
 benarSound.volume = 1.0;
+
 const salahSound = new Audio("sounds/jawaban_salah.mp3");
 salahSound.volume = 1.0;
+
 const selesai = new Audio("sounds/ucapan_terimakasih.mp3");
 selesai.volume = 1.0;
-window.onload = () => {
-  introMusic.play();
-};
 
-// startQuiz();
+window.addEventListener("DOMContentLoaded", () => {
+  introMusic.play();
+
+  const startButton = document.getElementById("start-btn");
+  if (startButton) {
+    startButton.addEventListener("click", startQuiz);
+  } else {
+    console.error("Tombol start tidak ditemukan!");
+  }
+});
