@@ -87,7 +87,7 @@
     let score = 0;
     let quizEnded = false;
     let timer;
-    let timeLeft = 10;
+    let timeLeft = 5;
     let username = "";
 
     // Ambil elemen dari HTML
@@ -153,7 +153,7 @@
     }
 
     function startTimer() {
-      timeLeft = 10;
+      timeLeft = 5;
       timerEl.innerText = `⏱️ ${timeLeft} detik`;
       timerEl.classList.remove("warning");
       
@@ -169,7 +169,7 @@
           clearInterval(timer);
           autoPickAnswer();
         }
-      }, 500);
+      }, 1000);
     }
 
     function autoPickAnswer() {
@@ -301,5 +301,6 @@
         console.log("Auto-play blocked. Music will play after user interaction.");
       });
     });
+
 
 
