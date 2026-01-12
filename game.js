@@ -169,7 +169,7 @@
           clearInterval(timer);
           autoPickAnswer();
         }
-      }, 400);
+      }, 500);
     }
 
     function autoPickAnswer() {
@@ -301,4 +301,5 @@
         console.log("Auto-play blocked. Music will play after user interaction.");
       });
     });
+
 
