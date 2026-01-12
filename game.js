@@ -12,14 +12,14 @@
         question: "🔋 Apa yang terjadi kalau baterai HP kamu habis?",
         answers: [
           { text: "HP berubah jadi robot", correct: false },
-          { text: "HP bisa goreng telur", correct: false },
+          { text: "HP bakal rusak selamanya", correct: false },
           { text: "HP mati dan tidak bisa digunakan", correct: true },
         ]
       },
       {
         question: "👨‍💻 Coding itu sebenarnya adalah...?",
         answers: [
-          { text: "Menulis puisi cinta", correct: false },
+          { text: "Menulis tulisan aneh dan gajelas", correct: false },
           { text: "Menulis perintah untuk komputer", correct: true },
           { text: "Menggambar kartun", correct: false },
         ]
@@ -301,6 +301,7 @@
         console.log("Auto-play blocked. Music will play after user interaction.");
       });
     });
+
 
 
 
