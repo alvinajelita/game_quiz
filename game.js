@@ -1,86 +1,86 @@
 // Data pertanyaan (dari game.js original)
-    const questions = [
-      {
-        question: "🌐 Apa yang kamu gunakan untuk browsing internet?",
-        answers: [
-          { text: "Remote TV", correct: false },
-          { text: "Web browser seperti Chrome atau Firefox", correct: true },
-          { text: "Mesin cuci", correct: false },
-        ]
-      },
-      {
-        question: "🔋 Apa yang terjadi kalau baterai HP kamu habis?",
-        answers: [
-          { text: "HP berubah jadi robot", correct: false },
-          { text: "HP bakal rusak selamanya", correct: false },
-          { text: "HP mati dan tidak bisa digunakan", correct: true },
-        ]
-      },
-      {
-        question: "👨‍💻 Coding itu sebenarnya adalah...?",
-        answers: [
-          { text: "Menulis tulisan aneh dan gajelas", correct: false },
-          { text: "Menulis perintah untuk komputer", correct: true },
-          { text: "Menggambar kartun", correct: false },
-        ]
-      },
-      {
-        question: "📡 Fungsi dari jaringan internet adalah...?",
-        answers: [
-          { text: "Menghubungkan perangkat ke seluruh dunia", correct: true },
-          { text: "Memperbaiki sinyal TV", correct: false },
-          { text: "Mendinginkan kulkas", correct: false },
-        ]
-      },
-      {
-        question: "🖱️ Mouse pada komputer digunakan untuk...?",
-        answers: [
-          { text: "Menangkap tikus", correct: false },
-          { text: "Menulis di papan tulis", correct: false },
-          { text: "Menggerakkan pointer dan klik", correct: true },
-        ]
-      },
-      {
-        question: "💻 Laptop yang lemot bisa jadi karena...?",
-        answers: [
-          { text: "Kurang makan", correct: false },
-          { text: "Terlalu banyak aplikasi yang berjalan", correct: true },
-          { text: "Tidak disiram air", correct: false },
-        ]
-      },
-      {
-        question: "📲 Apa itu aplikasi?",
-        answers: [
-          { text: "Jenis makanan cepat saji", correct: false },
-          { text: "Perabot rumah", correct: false },
-          { text: "Program di HP/komputer untuk membantu aktivitas", correct: true },
-        ]
-      },
-      {
-        question: "🔍 Google digunakan untuk...?",
-        answers: [
-          { text: "Mencari informasi di internet", correct: true },
-          { text: "Mencari barang hilang di rumah", correct: false },
-          { text: "Mencuci pakaian", correct: false },
-        ]
-      },
-      {
-        question: "🎧 Fungsi dari headphone adalah...?",
-        answers: [
-          { text: "Untuk topi gaya", correct: false },
-          { text: "Mendengarkan suara tanpa mengganggu orang lain", correct: true },
-          { text: "Mikroskop", correct: false },
-        ]
-      },
-      {
-        question: "🛡️ Apa itu antivirus di komputer?",
-        answers: [
-          { text: "Program untuk melindungi komputer dari virus", correct: true },
-          { text: "Obat buat manusia", correct: false },
-          { text: "Pelindung dari sinar matahari", correct: false },
-        ]
-      }
-    ];
+const questions = [
+  {
+    question: "💡 Apa yang dimaksud dengan Teknologi Informasi (TI)?",
+    answers: [
+      { text: "Bidang yang mempelajari pengolahan data dan teknologi komputer", correct: true },
+      { text: "Pelajaran tentang mesin industri berat", correct: false },
+      { text: "Ilmu tentang perakitan bangunan", correct: false },
+    ]
+  },
+  {
+    question: "📚 Mata kuliah yang dipelajari di Teknologi Informasi adalah...",
+    answers: [
+      { text: "Memasak dan tata boga", correct: false },
+      { text: "Pemrograman, Basis Data, dan Jaringan Komputer", correct: true },
+      { text: "Olahraga dan seni tari", correct: false },
+    ]
+  },
+  {
+    question: "🧑‍💻 Selain coding, mahasiswa TI juga belajar tentang...",
+    answers: [
+      { text: "Keamanan sistem dan manajemen data", correct: true },
+      { text: "Menjahit pakaian", correct: false },
+      { text: "Perawatan tanaman", correct: false },
+    ]
+  },
+  {
+    question: "💼 Berikut ini yang termasuk profesi lulusan Teknologi Informasi adalah...",
+    answers: [
+      { text: "Koki dan pelayan restoran", correct: false },
+      { text: "Atlet dan seniman", correct: false },
+      { text: "Programmer, IT Support, dan Network Engineer", correct: true },
+    ]
+  },
+  {
+    question: "🌐 Lulusan Teknologi Informasi dibutuhkan karena...",
+    answers: [
+      { text: "Hampir semua bidang sekarang menggunakan sistem digital", correct: true },
+      { text: "Semua orang harus bisa bermain game", correct: false },
+      { text: "Komputer akan menggantikan manusia sepenuhnya", correct: false },
+    ]
+  },
+  {
+    question: "🎯 Mengapa lulusan SMK sangat cocok memilih Teknologi Informasi?",
+    answers: [
+      { text: "Tidak perlu belajar hal baru lagi", correct: false },
+      { text: "Sudah terbiasa dengan praktik dan penggunaan teknologi", correct: true },
+      { text: "Karena tidak ada jurusan lain", correct: false },
+    ]
+  },
+  {
+    question: "🔥 Alasan utama memilih Teknologi Informasi adalah...",
+    answers: [
+      { text: "Kuliah tanpa tugas", correct: false },
+      { text: "Tidak perlu menggunakan komputer", correct: false },
+      { text: "Peluang kerja luas dan masa depan cerah", correct: true },
+    ]
+  },
+  {
+    question: "💰 Bagaimana gambaran gaji lulusan Teknologi Informasi?",
+    answers: [
+      { text: "Relatif tinggi dan meningkat sesuai skill dan pengalaman", correct: true },
+      { text: "Selalu kecil dan tidak berkembang", correct: false },
+      { text: "Sama untuk semua orang tanpa melihat kemampuan", correct: false },
+    ]
+  },
+  {
+    question: "📈 Gaji lulusan TI bisa terus naik jika...",
+    answers: [
+      { text: "Terus mengasah skill dan mengikuti perkembangan teknologi", correct: true },
+      { text: "Jarang belajar hal baru", correct: false },
+      { text: "Menghindari tantangan", correct: false },
+    ]
+  },
+  {
+    question: "🚀 Memilih Teknologi Informasi berarti...",
+    answers: [
+      { text: "Tidak punya masa depan", correct: false },
+      { text: "Siap berkarier di dunia digital dan teknologi", correct: true },
+      { text: "Hanya belajar teori tanpa praktik", correct: false },
+    ]
+  }
+];
 
     // Variabel global
     let currentQuestionIndex = 0;
@@ -301,6 +301,7 @@
         console.log("Auto-play blocked. Music will play after user interaction.");
       });
     });
+
 
 
 
