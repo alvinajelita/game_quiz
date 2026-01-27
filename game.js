@@ -1,94 +1,183 @@
+let currentQuestionIndex = 0;
+let score = 0;
+let quizEnded = false;
+let timer;
+let timeLeft = 5;
+let username = "";
 // Data pertanyaan (dari game.js original)
-const questions = [
-  {
-    question: "💡 Apa yang dimaksud dengan Teknologi Informasi (TI)?",
-    answers: [
-      { text: "Bidang yang mempelajari pengolahan data dan teknologi komputer", correct: true },
-      { text: "Pelajaran tentang mesin industri berat", correct: false },
-      { text: "Ilmu tentang perakitan bangunan", correct: false },
-    ]
-  },
-  {
-    question: "📚 Mata kuliah yang dipelajari di Teknologi Informasi adalah...",
-    answers: [
-      { text: "Memasak dan tata boga", correct: false },
-      { text: "Pemrograman, Basis Data, dan Jaringan Komputer", correct: true },
-      { text: "Olahraga dan seni tari", correct: false },
-    ]
-  },
-  {
-    question: "🧑‍💻 Selain coding, mahasiswa TI juga belajar tentang...",
-    answers: [
-      { text: "Keamanan sistem dan manajemen data", correct: true },
-      { text: "Menjahit pakaian", correct: false },
-      { text: "Perawatan tanaman", correct: false },
-    ]
-  },
-  {
-    question: "💼 Berikut ini yang termasuk profesi lulusan Teknologi Informasi adalah...",
-    answers: [
-      { text: "Koki dan pelayan restoran", correct: false },
-      { text: "Atlet dan seniman", correct: false },
-      { text: "Programmer, IT Support, dan Network Engineer", correct: true },
-    ]
-  },
-  {
-    question: "🌐 Lulusan Teknologi Informasi dibutuhkan karena...",
-    answers: [
-      { text: "Hampir semua bidang sekarang menggunakan sistem digital", correct: true },
-      { text: "Semua orang harus bisa bermain game", correct: false },
-      { text: "Komputer akan menggantikan manusia sepenuhnya", correct: false },
-    ]
-  },
-  {
-    question: "🎯 Mengapa lulusan SMK sangat cocok memilih Teknologi Informasi?",
-    answers: [
-      { text: "Tidak perlu belajar hal baru lagi", correct: false },
-      { text: "Sudah terbiasa dengan praktik dan penggunaan teknologi", correct: true },
-      { text: "Karena tidak ada jurusan lain", correct: false },
-    ]
-  },
-  {
-    question: "🔥 Alasan utama memilih Teknologi Informasi adalah...",
-    answers: [
-      { text: "Kuliah tanpa tugas", correct: false },
-      { text: "Tidak perlu menggunakan komputer", correct: false },
-      { text: "Peluang kerja luas dan masa depan cerah", correct: true },
-    ]
-  },
-  {
-    question: "💰 Bagaimana gambaran gaji lulusan Teknologi Informasi?",
-    answers: [
-      { text: "Relatif tinggi dan meningkat sesuai skill dan pengalaman", correct: true },
-      { text: "Selalu kecil dan tidak berkembang", correct: false },
-      { text: "Sama untuk semua orang tanpa melihat kemampuan", correct: false },
-    ]
-  },
-  {
-    question: "📈 Gaji lulusan TI bisa terus naik jika...",
-    answers: [
-      { text: "Terus mengasah skill dan mengikuti perkembangan teknologi", correct: true },
-      { text: "Jarang belajar hal baru", correct: false },
-      { text: "Menghindari tantangan", correct: false },
-    ]
-  },
-  {
-    question: "🚀 Memilih Teknologi Informasi berarti...",
-    answers: [
-      { text: "Tidak punya masa depan", correct: false },
-      { text: "Siap berkarier di dunia digital dan teknologi", correct: true },
-      { text: "Hanya belajar teori tanpa praktik", correct: false },
-    ]
-  }
-];
+let questions = [];
 
-    // Variabel global
-    let currentQuestionIndex = 0;
-    let score = 0;
-    let quizEnded = false;
-    let timer;
-    let timeLeft = 5;
-    let username = "";
+const questionsByMajor = {
+  CODING: [
+    {
+      question: "💡 Apa yang dimaksud dengan Teknologi Informasi (TI)?",
+      answers: [
+        { text: "Bidang yang mempelajari pengolahan data dan teknologi komputer", correct: true },
+        { text: "Pelajaran mesin industri", correct: false },
+        { text: "Jurusan yang belajar cara menonton", correct: false },
+      ]
+    },
+    {
+      question: "📚 Mata kuliah TI yang berhubungan dengan coding adalah...",
+      answers: [
+        { text: "Memasak dan tata boga", correct: false },
+        { text: "Pemrograman, Algoritma, Basis Data", correct: true },
+        { text: "Bahasa Inggris, Bahasa Jepang, dan Mandarin", correct: false },
+      ]
+    },
+    {
+      question: "💼 Profesi TI yang dekat dengan dunia coding adalah...",
+      answers: [
+        { text: "Prog pamer dan Soft Bread", correct: false },
+        { text: "Programmer dan Software Developer", correct: true },
+        { text: "Programmer abal dan Software Dede", correct: false },
+      ]
+    },
+    {
+      question: "💰 Gaji lulusan TI di bidang coding biasanya...",
+      answers: [
+        { text: "Selalu rendah", correct: false },
+        { text: "Tidak punya gaji", correct: false },
+        { text: "Relatif tinggi dan tergantung skill", correct: true },
+      ]
+    },
+    {
+      question: "🌟 Manfaat belajar TI di dunia coding adalah...",
+      answers: [
+        { text: "Mampu membuat aplikasi dan solusi digital", correct: true },
+        { text: "Mampu membuat apple dan solusi uang digital", correct: false },
+        { text: "Mampu mengelola masalah orang lain", correct: false },
+      ]
+    }
+  ],
+
+  KOMPUTER: [
+    {
+      question: "💡 Teknologi Informasi berkaitan erat dengan...",
+      answers: [
+        { text: "Mesin berat", correct: false },
+        { text: "Komputer, sistem, dan jaringan", correct: true },
+        { text: "Handphone dan Earphone", correct: false },
+      ]
+    },
+    {
+      question: "📚 Mata kuliah TI yang berhubungan dengan komputer adalah...",
+      answers: [
+        { text: "Jaringan Komputer dan Sistem Operasi", correct: true },
+        { text: "Mata kuliah lain", correct: false },
+        { text: "Menggambar codingan", correct: false },
+      ]
+    },
+    {
+      question: "💼 Profesi TI yang berkaitan dengan komputer adalah...",
+      answers: [
+        { text: "IT Suplemen dan Network Eror", correct: false },
+        { text: "IT Sport dan Network Energi", correct: false },
+        { text: "IT Support dan Network Engineer", correct: true },
+      ]
+    },
+    {
+      question: "💰 Gaji lulusan TI di bidang komputer biasanya...",
+      answers: [
+        { text: "Selalu kecil", correct: false },
+        { text: "Menjanjikan dan meningkat seiring pengalaman", correct: true },
+        { text: "Tidak berkembang", correct: false },
+      ]
+    },
+    {
+      question: "🌟 Manfaat belajar TI di dunia komputer adalah...",
+      answers: [
+        { text: "Tidak ada manfaat", correct: false },
+        { text: "Dapat uang yang banyak hingga milyarder", correct: false },
+        { text: "Mampu mengelola sistem dan perangkat komputer", correct: true },
+      ]
+    }
+  ],
+
+  
+  DIGITAL: [
+    {
+      question: "💡 Apa itu Teknologi Informasi (TI)?",
+      answers: [
+        { text: "Bidang keilmuan untuk memanfaatkan teknologi televisi & kabel untuk mengelola, mengolah, menyimpan, & Menyebarkan Hoax", correct: false },
+        { text: "Bidang keilmuan untuk memanfaatkan teknologi yang ada untuk mengelola, mengolah, menyimpan, & Menyebarkan makanan", correct: false },
+        { text: "Bidang keilmuan untuk memanfaatkan teknologi komputer & jaringan untuk mengelola, mengolah, menyimpan, & Menyebarkan Informasi", correct: true },
+      ]
+    },
+    {
+      question: "📚 Mata kuliah TI mencakup...",
+      answers: [
+        { text: "Pemrograman, Basis Data, dan Jaringan", correct: true },
+        { text: "Pembobolan, Basis Mata, dan Jaringan", correct: false },
+        { text: "Pemrograman, Data Diri, dan Jaringan Saraf Otak", correct: false },
+      ]
+    },
+    {
+      question: "💼 Profesi lulusan TI di dunia digital adalah...",
+      answers: [
+        { text: "Atlet", correct: false },
+        { text: "Programmer, IT Support, Digital Specialist", correct: true },
+        { text: "Petani", correct: false },
+      ]
+    },
+    {
+      question: "💰 Gaji lulusan TI di dunia digital...",
+      answers: [
+        { text: "Selalu kecil", correct: false },
+        { text: "Tidak berkembang", correct: false },
+        { text: "Kompetitif dan tergantung skill", correct: true },
+      ]
+    },
+    {
+      question: "🌟 Manfaat TI untuk diri sendiri adalah...",
+      answers: [
+        { text: "Siap menghadapi dunia kerja berbasis teknologi", correct: true },
+        { text: "Tidak punya masa depan", correct: false },
+        { text: "Hanya teori", correct: false },
+      ]
+    }
+  ]
+};
+const majorSelectionDiv = document.getElementById("major-selection");
+let selectedMajor = "";
+
+
+
+function startQuiz() {
+  username = usernameInput.value.trim();
+  if (!username) {
+    alert("⚠️ Masukkan nama kamu dulu ya! 😊");
+    return;
+  }
+
+  // 🔊 PLAY INTRO MUSIC DI SINI
+  introMusic.currentTime = 0;
+  introMusic.play();
+
+  introDiv.classList.add("hidden");
+  majorSelectionDiv.classList.remove("hidden");
+}
+
+
+document.querySelectorAll(".major-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    selectedMajor = btn.dataset.major;
+
+    questions = questionsByMajor[selectedMajor];
+
+    majorSelectionDiv.classList.add("hidden");
+    quizContainer.classList.remove("hidden");
+
+    currentQuestionIndex = 0;
+    score = 0;
+    quizEnded = false;
+    scoreDisplay.innerText = `Skor: ${score} 🍀`;
+
+    showQuestion();
+  });
+});
+
+
 
     // Ambil elemen dari HTML
     const questionElement = document.getElementById("question");
@@ -126,31 +215,7 @@ const questions = [
       if (e.key === "Enter") startQuiz();
     });
 
-    function startQuiz() {
-      username = usernameInput.value.trim();
-      if (username === "") {
-        alert("⚠️ Masukkan nama kamu dulu ya! 😊");
-        usernameInput.focus();
-        return;
-      }
-
-      // Stop intro music & play quiz music
-      introMusic.pause();
-      introMusic.currentTime = 0;
-      quizMusic.play();
-
-      // Reset game state
-      currentQuestionIndex = 0;
-      score = 0;
-      quizEnded = false;
-      
-      introDiv.classList.add("hidden");
-      quizContainer.classList.remove("hidden");
-      scoreDisplay.innerText = `Skor: ${score} 🍀`;
-      nextButton.innerText = "➡️ Selanjutnya";
-      
-      showQuestion();
-    }
+    
 
     function startTimer() {
       timeLeft = 5;
@@ -301,8 +366,3 @@ const questions = [
         console.log("Auto-play blocked. Music will play after user interaction.");
       });
     });
-
-
-
-
-
